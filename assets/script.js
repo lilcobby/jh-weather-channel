@@ -14,7 +14,7 @@ var theData;
 
 function getApi(city) {
   var apiUrl =
-    "https://api.openweathermap.org/geo/1.0/direct?" +
+    "https://api.openweathermap.org/data/2.5/forecast?" +
     "appid=ba2dc7edbfab0d54f19c776d6eef06fe" +
     "&units=imperial&q=";
 
@@ -27,12 +27,27 @@ function getApi(city) {
       let theData = data;
       //   cityLat = theData[0].lat;
       //   cityLon = theData[0].lon;
-      console.log(theData[0].lat);
-      return theData;
     });
 }
 
 searchBtn.addEventListener("click", () => {
   getApi(searchBox.value);
-  console.log(theData);
 });
+// async function checkWeather(city) {
+//   const response = await fetch(apiUrl + city);
+//   var data = await response.json();
+
+//   console.log(data);
+//   document.querySelector(".city").innerHTML = data[0].name;
+//   // gets lat and lon
+////   cityLon = data[0].lon;
+//   cityLon = data[0].lon;
+//   console.log(cityLon);
+
+// }
+
+// // now we need to get the five day data
+
+// searchBtn.addEventListener("click", () => {
+//   checkWeather(searchBox.value);
+// });
