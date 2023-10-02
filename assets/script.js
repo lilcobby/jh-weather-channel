@@ -1,5 +1,6 @@
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
+document.getElementById("weatherContainer").style.display = "none";
 
 function getApi(city) {
   var apiUrl =
@@ -31,7 +32,7 @@ function getApi(city) {
       }
     });
 }
-
 searchBtn.addEventListener("click", () => {
   getApi(searchBox.value);
+  document.getElementById("weatherContainer").style.display = "flex";
 });
