@@ -1,20 +1,28 @@
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
-var theData;
 
 function getApi(city) {
   var apiUrl =
-    "https://api.openweathermap.org/data/2.5/forecast?" +
-    "appid=ba2dc7edbfab0d54f19c776d6eef06fe" +
-    "&units=imperial&q=";
-
+    "https://api.openweathermap.org/data/2.5/forecast?appid=ba2dc7edbfab0d54f19c776d6eef06fe&units=imperial&q=";
+  document.querySelector(".cityName").innerHTML = searchBox.value;
   fetch(apiUrl + city)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
-      let theData = data;
+      for (i = 0; i < 5; i++) {
+        document.getElementById("day" + (i + 1) + "Temp").innerHTML =
+          "Temp " + data.list[i].main.temp;
+      }
+      for (i = 0; i < 5; i++) {
+        document.getElementById("day" + (i + 1) + "Humid").innerHTML =
+          "Humidity " + data.list[i].main.humidity;
+      }
+      for (i = 0; i < 5; i++) {
+        document.getElementById("day" + (i + 1) + "Wind").innerHTML =
+          "Wind Speed  " + data.list[i].wind.speed + "mph";
+      }
     });
 }
 
