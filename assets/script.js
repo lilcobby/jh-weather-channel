@@ -14,11 +14,11 @@ function getApi(city) {
       console.log(data);
       for (i = 0; i < 5; i++) {
         document.getElementById("day" + (i + 1) + "Temp").innerHTML =
-          "Temp " + data.list[i].main.temp;
+          "Temp " + data.list[i].main.temp + "°";
       }
       for (i = 0; i < 5; i++) {
         document.getElementById("day" + (i + 1) + "Humid").innerHTML =
-          "Humidity " + data.list[i].main.humidity;
+          "Humidity " + data.list[i].main.humidity + "%";
       }
       for (i = 0; i < 5; i++) {
         document.getElementById("day" + (i + 1) + "Wind").innerHTML =
@@ -34,5 +34,11 @@ function getApi(city) {
 }
 searchBtn.addEventListener("click", () => {
   getApi(searchBox.value);
+
   document.getElementById("weatherContainer").style.display = "flex";
+  localStorage.setItem("memory 1", searchBox.value);
+  document.getElementById("memOne").innerHTML =
+    localStorage.getItem("memory 1");
 });
+localStorage.setItem("memory 1", searchBox.value);
+document.getElementById("memOne").innerHTML = localStorage.getItem("memory 1");
