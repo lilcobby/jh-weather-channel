@@ -23,6 +23,12 @@ function getApi(city) {
         document.getElementById("day" + (i + 1) + "Wind").innerHTML =
           "Wind Speed  " + data.list[i].wind.speed + "mph";
       }
+      for (i = 0; i < 5; i++) {
+        document.getElementById("img" + (i + 1)).src =
+          "https://openweathermap.org/img/wn/" +
+          data.list[i].weather[0].icon +
+          ".png";
+      }
     });
 }
 
