@@ -5,7 +5,7 @@ document.getElementById("weatherContainer").style.display = "none";
 function getApi(city) {
   var apiUrl =
     "https://api.openweathermap.org/data/2.5/forecast?appid=ba2dc7edbfab0d54f19c776d6eef06fe&units=imperial&q=";
-  document.querySelector(".cityName").innerHTML = searchBox.value;
+  document.querySelector(".myList").innerHTML = searchBox.value;
   fetch(apiUrl + city)
     .then(function (response) {
       return response.json();
@@ -37,8 +37,5 @@ searchBtn.addEventListener("click", () => {
 
   document.getElementById("weatherContainer").style.display = "flex";
   localStorage.setItem("memory 1", searchBox.value);
-  document.getElementById("memOne").innerHTML =
-    localStorage.getItem("memory 1");
 });
 localStorage.setItem("memory 1", searchBox.value);
-document.getElementById("memOne").innerHTML = localStorage.getItem("memory 1");
